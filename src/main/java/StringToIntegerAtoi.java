@@ -1,3 +1,5 @@
+import static java.lang.Integer.MAX_VALUE;
+
 /**
  * 8. String to Integer (atoi)
  * <p>
@@ -68,6 +70,39 @@
  */
 public class StringToIntegerAtoi {
     public int myAtoi(String s) {
-        return 0;
+        s = s.trim();
+        if (isValidString(s)) {
+            return getValue(s);
+        } else return 0;
+    }
+
+    private boolean isValidString(String s) {
+        return s.matches("^([-+]?\\d+).*");
+    }
+
+    private int getValue(String s) {
+        long result = switch (s.charAt(0)) {
+            case '+' -> getNumber(s.replace("+", ""));
+            case '-' -> -1 * getNumber(s.replace("-", ""));
+            default -> getNumber(s);
+        };
+        return getValidResult(result);
+    }
+
+    private long getNumber(String s) {
+        int index = 10;
+        long result = 0;
+        for (char c : s.toCharArray()) {
+            if (c >= '0' && c <= '9' && result < Integer.MAX_VALUE && result > Integer.MIN_VALUE) {
+                result = result * index + Character.getNumericValue(c);
+            } else break;
+        }
+        return result;
+    }
+
+    private int getValidResult(long result) {
+        if (result > Integer.MAX_VALUE) return Integer.MAX_VALUE;
+        if (result < Integer.MIN_VALUE) return Integer.MIN_VALUE;
+        return (int) result;
     }
 }
