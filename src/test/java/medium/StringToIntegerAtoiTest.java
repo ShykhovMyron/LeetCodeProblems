@@ -1,3 +1,5 @@
+package medium;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -18,7 +20,7 @@ class StringToIntegerAtoiTest {
             "'4193 with words',4193",
             "'hello, bro -42 moneys',0",
     })
-    public void reverseTest(String  s, int expected) {
+    public void reverseTest(String s, int expected) {
         int actual = stringToIntegerAtoi.myAtoi(s);
         assertEquals(expected, actual);
     }
