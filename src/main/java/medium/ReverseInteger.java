@@ -1,3 +1,5 @@
+package medium;
+
 public class ReverseInteger {
     /**
      * 7. Reverse Integer

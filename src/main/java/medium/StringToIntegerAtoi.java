@@ -1,4 +1,4 @@
-import static java.lang.Integer.MAX_VALUE;
+package medium;
 
 /**
  * 8. String to Integer (atoi)
