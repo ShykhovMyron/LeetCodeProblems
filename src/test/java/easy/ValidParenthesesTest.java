@@ -10,6 +10,7 @@ class ValidParenthesesTest {
 
     @ParameterizedTest
     @CsvSource({
+            "([)],false",
             "(),true",
             "(){}[],true",
             "(},false",

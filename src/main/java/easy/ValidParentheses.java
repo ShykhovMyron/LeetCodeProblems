@@ -37,24 +37,43 @@ public class ValidParentheses {
 
         StringBuilder builder = new StringBuilder(s);
         while (!builder.isEmpty()) {
-            int firstParenIndex = 0;
-            int secondParenIndex = getSecondParenIndex(firstParenIndex, builder);
-            if (secondParenIndex == -1) return false;
-            else {
-                builder.deleteCharAt(secondParenIndex);
-                builder.deleteCharAt(firstParenIndex);
-            }
+            int index = getParensIndex(builder);
+            if (index == -1) return false;
+            else removeParens(builder, index);
         }
         return true;
     }
 
-    private int getSecondParenIndex(int firstParenIndex, StringBuilder builder) {
+    private void removeParens(StringBuilder builder, int index) {
+        builder.delete(index, index + 2);
+        index = index - 1;
+        if (isSecondParenValid(index, builder)) {
+            removeParens(builder, index);
+        }
+    }
+
+    private int getParensIndex(StringBuilder builder) {
+        int index;
+        if ((index = builder.indexOf("()")) != -1) {
+            return index;
+        }
+        if ((index = builder.indexOf("[]")) != -1) {
+            return index;
+        }
+        if ((index = builder.indexOf("{}")) != -1) {
+            return index;
+        }
+        return -1;
+    }
+
+    private boolean isSecondParenValid(int firstParenIndex, StringBuilder builder) {
+        if (firstParenIndex < 0 || firstParenIndex >= builder.length() - 1) return false;
         char firstParen = builder.charAt(firstParenIndex);
         return switch (firstParen) {
-            case '(' -> builder.indexOf(")");
-            case '[' -> builder.indexOf("]");
-            case '{' -> builder.indexOf("}");
-            default -> -1;
+            case '(' -> builder.charAt(firstParenIndex + 1) == ')';
+            case '[' -> builder.charAt(firstParenIndex + 1) == ']';
+            case '{' -> builder.charAt(firstParenIndex + 1) == '}';
+            default -> false;
         };
     }
 }
