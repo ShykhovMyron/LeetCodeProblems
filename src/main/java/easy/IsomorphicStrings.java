@@ -52,7 +52,7 @@ public class IsomorphicStrings {
                 char currentChar = s.charAt(i);
                 int currentIndex = i;
                 while (currentIndex >= 0) {
-                    array[i] = count;
+                    array[currentIndex] = count;
                     currentIndex = s.indexOf(currentChar, currentIndex + 1);
                 }
                 count++;
