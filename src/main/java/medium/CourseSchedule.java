@@ -1,5 +1,7 @@
 package medium;
 
+import java.util.ArrayList;
+
 /**
  * 207. Course Schedule
  * Medium
@@ -35,6 +37,37 @@ package medium;
  */
 public class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+        ArrayList[] graph = new ArrayList[numCourses];
+        for (int i = 0; i < numCourses; i++)
+            graph[i] = new ArrayList();
+
+        boolean[] visited = new boolean[numCourses];
+        boolean[] dp = new boolean[numCourses];
+        for (int[] prerequisite : prerequisites) {
+            graph[prerequisite[1]].add(prerequisite[0]);
+        }
+
+        for (int i = 0; i < numCourses; i++) {
+            if (!dfs(graph, visited, i, dp))
+                return false;
+        }
+        return true;
+    }
+
+    private boolean dfs(ArrayList[] graph, boolean[] visited, int course, boolean[] dp) {
+        if (visited[course])
+            return dp[course];
+        else
+            visited[course] = true;
+
+        for (int i = 0; i < graph[course].size(); i++) {
+            if (!dfs(graph, visited, (int) graph[course].get(i), dp)) {
+                dp[course] = false;
+                return false;
+            }
+        }
+
+        dp[course] = true;
         return true;
     }
 }
