@@ -13,8 +13,8 @@ class FindPivotIndexTest {
 
     static Stream<Arguments> generateData() {
         return Stream.of(
-                Arguments.of(new int[]{1, 7, 3, 6, 5, 6}, 3),
-                Arguments.of(new int[]{1, 2, 3}, -1)
+                Arguments.of(new int[]{1, 2, 3}, -1),
+                Arguments.of(new int[]{1, 7, 3, 6, 5, 6}, 3)
         );
     }
 
