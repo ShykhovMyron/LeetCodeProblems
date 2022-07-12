@@ -24,7 +24,7 @@ class RunningSumOfArrayTest {
     @ParameterizedTest
     @MethodSource("generateData")
     void runningSum(int[] nums, int[] expected) {
-        runningSumOfArray.runningSum(nums);
-        assertArrayEquals(nums, expected);
+        int[] actual = runningSumOfArray.runningSum(nums);
+        assertArrayEquals(expected, actual);
     }
 }
