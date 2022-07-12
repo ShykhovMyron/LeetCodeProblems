@@ -33,6 +33,6 @@ package easy;
  */
 public class RunningSumOfArray {
     public int[] runningSum(int[] nums) {
-
+        return nums;
     }
 }
