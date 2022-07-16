@@ -12,7 +12,7 @@ class LongestPalindromeTest {
     @CsvSource({
             "'abccccdd',7",
             "'a',1",
-            "'aA',0",
+            "'aA',1",
     })
     void longestPalindromeTest(String s, int expected) {
         int actual = longestPalindrome.longestPalindrome(s);
