@@ -2,28 +2,24 @@ package leetcode75.first;
 
 public class BackspaceStringCompare {
     public boolean backspaceCompare(String S, String T) {
-        int i = S.length() - 1, j = T.length() - 1;
-        int skipS = 0, skipT = 0;
-
-        while (i >= 0 || j >= 0) {
-            while (i >= 0) {
-                if (S.charAt(i) == '#') {skipS++; i--;}
-                else if (skipS > 0) {skipS--; i--;}
-                else break;
-            }
-            while (j >= 0) {
-                if (T.charAt(j) == '#') {skipT++; j--;}
-                else if (skipT > 0) {skipT--; j--;}
-                else break;
-            }
-
-            if (i >= 0 && j >= 0 && S.charAt(i) != T.charAt(j))
-                return false;
-
-            if ((i >= 0) != (j >= 0))
-                return false;
-            i--; j--;
+        int currS = getCurrIndex(S.length() - 1, S);
+        int currT = getCurrIndex(T.length() - 1, T);
+        if (currS < 0 && currT < 0) return true;
+        while (currS >= 0 && currT >= 0) {
+            if (S.charAt(currS) != T.charAt(currT)) return false;
+            currS = getCurrIndex(currS - 1, S);
+            currT = getCurrIndex(currT - 1, T);
         }
-        return true;
+        return currS < 0 && currT < 0;
+    }
+
+    private int getCurrIndex(int curr, String str) {
+        int skip = 0;
+        while (curr >= 0 && (str.charAt(curr) == '#' || skip > 0)) {
+            if (str.charAt(curr) == '#') skip++;
+            else skip--;
+            curr--;
+        }
+        return curr;
     }
 }
