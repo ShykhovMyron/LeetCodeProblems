@@ -9,7 +9,7 @@ class BackspaceStringCompareTest {
 
     @Test
     void backspaceCompare() {
-        boolean actual = backspaceStringCompare.backspaceCompare("ab#c", "ad#c");
+        boolean actual = backspaceStringCompare.backspaceCompare("bxj##tw", "bxo#j##tw");
         assertTrue(actual);
     }
 }
