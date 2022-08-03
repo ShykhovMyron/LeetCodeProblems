@@ -1,5 +1,7 @@
 package leetcode75.second;
 
+import util.ListNode;
+
 public class RemoveNthNodeFromEndList {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode fast = new ListNode();
@@ -16,22 +18,5 @@ public class RemoveNthNodeFromEndList {
         current.next = current.next.next;
 
         return first.next;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }

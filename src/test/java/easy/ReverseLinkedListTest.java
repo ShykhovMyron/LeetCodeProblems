@@ -1,7 +1,8 @@
 package easy;
 
-import easy.ReverseLinkedList.ListNode;
 import org.junit.jupiter.api.Test;
+import util.ListNode;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ReverseLinkedListTest {

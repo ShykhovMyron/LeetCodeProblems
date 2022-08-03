@@ -1,5 +1,7 @@
 package medium;
 
+import util.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,15 +14,5 @@ public class LinkedListCycle {
             head = head.next;
         }
         return null;
-    }
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 }
