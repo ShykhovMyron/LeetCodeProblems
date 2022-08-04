@@ -1,7 +1,7 @@
 package leetcode75.second;
 
-import leetcode75.second.PalindromeLinkedList.ListNode;
 import org.junit.jupiter.api.Test;
+import util.ListNode;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
