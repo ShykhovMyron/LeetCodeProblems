@@ -54,3 +54,6 @@
 --<div><div>Related Topics</div><div><li>Database</li></div></div><br><div><li>👍 421</li><li>👎 32</li></div>
 
 --There is no code of Java type for this problem
+SELECT employee_id,
+       IF(employee_id % 2 != 0 AND name NOT LIKE 'M%', salary, 0) AS bonus
+FROM Employees
