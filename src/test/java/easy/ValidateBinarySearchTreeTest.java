@@ -1,9 +1,11 @@
 package easy;
 
-import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.Arguments;
+import util.TreeNode;
+
+import java.util.stream.Stream;
 
 class ValidateBinarySearchTreeTest {
 
@@ -18,11 +20,11 @@ class ValidateBinarySearchTreeTest {
 
     @Test
     void isValidBST() {
-        ValidateBinarySearchTree.TreeNode root = new ValidateBinarySearchTree.TreeNode(5);
-        root.left = new ValidateBinarySearchTree.TreeNode(4);
-        root.right = new ValidateBinarySearchTree.TreeNode(6);
-        root.right.left = new ValidateBinarySearchTree.TreeNode(3);
-        root.right.right = new ValidateBinarySearchTree.TreeNode(7);
+    TreeNode root = new TreeNode(5);
+    root.left = new TreeNode(4);
+    root.right = new TreeNode(6);
+    root.right.left = new TreeNode(3);
+    root.right.right = new TreeNode(7);
         boolean actual = validateBinarySearchTree.isValidBST(root);
 
         Assertions.assertFalse(actual);
@@ -30,9 +32,9 @@ class ValidateBinarySearchTreeTest {
 
     @Test
     void isValidBSTSimple() {
-        ValidateBinarySearchTree.TreeNode root = new ValidateBinarySearchTree.TreeNode(2);
-        root.left = new ValidateBinarySearchTree.TreeNode(1);
-        root.right = new ValidateBinarySearchTree.TreeNode(3);
+    TreeNode root = new TreeNode(2);
+    root.left = new TreeNode(1);
+    root.right = new TreeNode(3);
         boolean actual = validateBinarySearchTree.isValidBST(root);
 
         Assertions.assertTrue(actual);
