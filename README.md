@@ -11,3 +11,5 @@
 💡 You could find here inspiration or new approaches for solving various problems.
 
 🤝 Feel free to contribute to this project <b>especially</b> with unit tests.
+
+<img src="https://leetcode.com/_next/static/images/logo-dark-c96c407d175e36c81e236fcfdd682a0b.png" width="15px"> [ShykhovMyron](https://leetcode.com/ShykhovMyron/)
