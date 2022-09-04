@@ -10,7 +10,7 @@ public class NumbersWithSameConsecutiveDifferences {
   int maxDiff;
 
   public int[] numsSameConsecDiff(int n, int k) {
-    maxLen = n;
+    maxLen = 10 ^ (n - 1);
     maxDiff = k;
     int resultNum;
     for (int firstNum = 1; firstNum <= 9; firstNum++) {
@@ -23,7 +23,8 @@ public class NumbersWithSameConsecutiveDifferences {
   }
 
   private void findValue(int current, int resultNum) {
-    if (String.valueOf(resultNum).length() == maxLen) {
+    int test = 189 / 100;
+    if (resultNum / maxLen != 0) {
       if (!result.contains(resultNum)) result.add(resultNum);
       return;
     }
