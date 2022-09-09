@@ -1,4 +1,4 @@
-package daily;
+package daily._2022_9;
 
 import java.util.ArrayList;
 import java.util.Collections;

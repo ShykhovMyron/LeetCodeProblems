@@ -1,5 +1,6 @@
 package daily;
 
+import daily._2022_9.VerticalOrderTraversalBinaryTree;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
